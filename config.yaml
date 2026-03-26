@@ -1,0 +1,17 @@
+# Ollama bağlantı ayarları
+ollama:
+  base_url: "http://localhost:11434"  # Ollama'nın varsayılan adresi
+  default_model: "llama3.2"           # Varsayılan model (ollama pull llama3.2)
+  timeout: 120                        # İstek zaman aşımı (saniye)
+
+# Web sunucu ayarları
+server:
+  host: "127.0.0.1"
+  port: 8000
+  reload: false
+
+# Sohbet ayarları
+chat:
+  system_prompt: "Sen yardımcı bir yapay zeka asistanısın. Türkçe sorulara Türkçe, İngilizce sorulara İngilizce cevap ver."
+  max_history: 20   # Bellekte tutulacak maksimum mesaj sayısı
+  stream: true      # Yanıtları akış olarak al (daha hızlı)
