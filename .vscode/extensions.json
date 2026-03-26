@@ -1,0 +1,28 @@
+{
+  // Bu projeyi açtığınızda VS Code aşağıdaki uzantıları önerir.
+  // "Uzantıları Göster" butonuna tıklayarak hepsini kurabilirsiniz.
+  "recommendations": [
+    // Python
+    "ms-python.python",
+    "ms-python.debugpy",
+    "ms-python.vscode-pylance",
+
+    // Kod kalitesi
+    "ms-python.flake8",
+
+    // YAML (config.yaml düzenleme)
+    "redhat.vscode-yaml",
+
+    // REST API testi (FastAPI endpoint'lerini test etmek için)
+    "humao.rest-client",
+
+    // Ortam yönetimi
+    "donjayamanne.python-environment-manager",
+
+    // Git
+    "eamodio.gitlens",
+
+    // Tema (isteğe bağlı)
+    "zhuangtongfa.material-theme"
+  ]
+}

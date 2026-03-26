@@ -1,0 +1,126 @@
+{
+  // ---------------------------------------------------------------
+  // VS Code Görevler – Terminal → Görevi Çalıştır (Ctrl+Shift+P →
+  // "Tasks: Run Task") menüsünden erişin.
+  // ---------------------------------------------------------------
+  "version": "2.0.0",
+  "tasks": [
+    // -----------------------------------------------------------
+    // Bağımlılıkları yükle
+    // -----------------------------------------------------------
+    {
+      "label": "📦 Bağımlılıkları Yükle (pip install)",
+      "type": "shell",
+      "command": "pip install -r requirements.txt",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    // -----------------------------------------------------------
+    // Web sunucusunu başlat (F5 ile debug olmadan)
+    // -----------------------------------------------------------
+    {
+      "label": "🌐 Web Sunucusunu Başlat",
+      "type": "shell",
+      "command": "python app.py",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONPATH": "${workspaceFolder}"
+        }
+      },
+      "group": "build",
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": false
+      },
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^(.*)$",
+          "file": 1,
+          "location": 2,
+          "message": 3
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Yerel AI",
+          "endsPattern": "Uvicorn running"
+        }
+      }
+    },
+    // -----------------------------------------------------------
+    // Tarayıcıda aç (Web sunucusu başladıktan sonra)
+    // -----------------------------------------------------------
+    {
+      "label": "open-browser",
+      "type": "shell",
+      "command": "python -m webbrowser http://127.0.0.1:8000",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    // -----------------------------------------------------------
+    // Ollama model indir
+    // -----------------------------------------------------------
+    {
+      "label": "⬇ Ollama Model İndir (llama3.2)",
+      "type": "shell",
+      "command": "ollama pull llama3.2",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    // -----------------------------------------------------------
+    // Testleri çalıştır
+    // -----------------------------------------------------------
+    {
+      "label": "🧪 Testleri Çalıştır",
+      "type": "shell",
+      "command": "python -m pytest tests/ -v",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONPATH": "${workspaceFolder}"
+        }
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    // -----------------------------------------------------------
+    // Ollama'nın çalışıp çalışmadığını kontrol et
+    // -----------------------------------------------------------
+    {
+      "label": "🔍 Ollama Durumunu Kontrol Et",
+      "type": "shell",
+      "command": "ollama list",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

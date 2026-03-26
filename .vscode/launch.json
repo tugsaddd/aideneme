@@ -1,0 +1,94 @@
+{
+  // ---------------------------------------------------------------
+  // VS Code – Çalıştır / Hata Ayıkla konfigürasyonları
+  // "Run and Debug" panelinden (Ctrl+Shift+D) seçin, ardından F5.
+  // ---------------------------------------------------------------
+  "version": "0.2.0",
+  "configurations": [
+    // -----------------------------------------------------------
+    // 1. Web Arayüzü – tarayıcıda http://127.0.0.1:8000
+    // -----------------------------------------------------------
+    {
+      "name": "🌐 Web Arayüzü (app.py)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/app.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      },
+      "postDebugTask": "open-browser"
+    },
+    // -----------------------------------------------------------
+    // 2. Komut Satırı Arayüzü
+    // -----------------------------------------------------------
+    {
+      "name": "💬 Komut Satırı (cli.py)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/cli.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    // -----------------------------------------------------------
+    // 3. CLI – özel model ile
+    // -----------------------------------------------------------
+    {
+      "name": "💬 CLI – Model Seç",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/cli.py",
+      "args": ["--model", "${input:ollamaModel}"],
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    // -----------------------------------------------------------
+    // 4. Testleri Çalıştır
+    // -----------------------------------------------------------
+    {
+      "name": "🧪 Testleri Çalıştır (pytest)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["tests/", "-v"],
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    // -----------------------------------------------------------
+    // 5. Mevcut dosyayı çalıştır
+    // -----------------------------------------------------------
+    {
+      "name": "▶ Mevcut Dosyayı Çalıştır",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    }
+  ],
+  // -----------------------------------------------------------
+  // Giriş değişkenleri
+  // -----------------------------------------------------------
+  "inputs": [
+    {
+      "id": "ollamaModel",
+      "type": "pickString",
+      "description": "Kullancak Ollama modelini seçin",
+      "options": ["llama3.2", "llama3.1", "mistral", "phi3", "gemma2", "codellama"],
+      "default": "llama3.2"
+    }
+  ]
+}

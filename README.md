@@ -60,10 +60,52 @@ python cli.py --model llama3.2 --system "Sen bir Python uzmanısın"
 
 ---
 
+## 🖥️ VS Code ile Başlatma
+
+Projeyi VS Code'da açtığınızda her şey hazır — kurulum ve çalıştırma için ayrıca terminal açmanıza gerek yok.
+
+### Adım 1 – Önerilen Uzantıları Kurun
+
+VS Code'u açtığınızda sağ alt köşede **"Install Recommended Extensions"** bildirimi çıkar.  
+Tıklayın ve tüm uzantıları kurun (Python, Pylance, YAML desteği vb.).
+
+### Adım 2 – Bağımlılıkları Yükleyin
+
+`Ctrl+Shift+P` → **Tasks: Run Task** → **📦 Bağımlılıkları Yükle (pip install)**
+
+### Adım 3 – Ollama Model İndirin *(ilk seferinde)*
+
+`Ctrl+Shift+P` → **Tasks: Run Task** → **⬇ Ollama Model İndir (llama3.2)**
+
+### Adım 4 – Uygulamayı Başlatın
+
+`Ctrl+Shift+D` ile **Run and Debug** panelini açın, ardından açılır menüden istediğiniz yapılandırmayı seçip **F5** basın:
+
+| Yapılandırma | Açıklama |
+|---|---|
+| **🌐 Web Arayüzü (app.py)** | Web sunucusunu başlatır ve tarayıcıyı otomatik açar |
+| **💬 Komut Satırı (cli.py)** | Terminal'de sohbet başlatır |
+| **💬 CLI – Model Seç** | Açılır listeden model seçerek CLI başlatır |
+| **🧪 Testleri Çalıştır (pytest)** | Tüm birim testleri çalıştırır |
+
+> 💡 **İpucu:** Breakpoint koymak için satır numarasının soluna tıklayın.  
+> F5 ile başlattığınızda kod o noktada durup değişkenleri incelemenize izin verir.
+
+### Adım 5 – Uygulamayı Kullanın
+
+Web sunucusu başladıktan sonra tarayıcınızda **http://127.0.0.1:8000** adresini açın.
+
+---
+
 ## 🗂️ Proje Yapısı
 
 ```
 aideneme/
+├── .vscode/
+│   ├── launch.json    # VS Code çalıştır/debug yapılandırmaları
+│   ├── tasks.json     # VS Code görevleri (pip install, model indir…)
+│   ├── settings.json  # Python yorumlayıcı & editör ayarları
+│   └── extensions.json# Önerilen uzantılar
 ├── app.py             # FastAPI web sunucusu
 ├── cli.py             # Komut satırı arayüzü
 ├── ollama_client.py   # Ollama API istemcisi

@@ -15,7 +15,7 @@ env/
 pip-wheel-metadata/
 
 # IDE
-.vscode/
+# .vscode/ – intentionally tracked (launch/tasks/settings configs)
 .idea/
 *.swp
 *.swo
