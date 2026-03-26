@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yerel AI</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <!-- Kenar çubuğu -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <span class="logo">🤖 Yerel AI</span>
+    </div>
+
+    <div class="sidebar-section">
+      <label for="model-select">Model</label>
+      <select id="model-select"></select>
+    </div>
+
+    <div class="sidebar-section">
+      <label for="system-prompt">Sistem mesajı</label>
+      <textarea id="system-prompt" rows="5"
+        placeholder="Asistana bir rol veya talimat verin..."></textarea>
+    </div>
+
+    <button id="new-chat-btn" class="btn-primary">＋ Yeni Sohbet</button>
+
+    <div id="status-bar" class="status-bar"></div>
+  </aside>
+
+  <!-- Ana içerik -->
+  <main class="main">
+    <div id="messages" class="messages">
+      <div class="welcome">
+        <h2>Merhaba! 👋</h2>
+        <p>Sohbete başlamak için bir şeyler yazın.</p>
+        <p class="hint">Model: <strong id="current-model">yükleniyor…</strong></p>
+      </div>
+    </div>
+
+    <div class="input-area">
+      <textarea
+        id="user-input"
+        placeholder="Mesajınızı yazın… (Göndermek için Enter, yeni satır için Shift+Enter)"
+        rows="1"
+      ></textarea>
+      <button id="send-btn" title="Gönder">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+        </svg>
+      </button>
+    </div>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
